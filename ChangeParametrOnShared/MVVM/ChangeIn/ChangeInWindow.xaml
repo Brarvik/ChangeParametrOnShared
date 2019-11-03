@@ -1,0 +1,76 @@
+﻿<Window x:Class="ChangeParametrOnShared.MVVM.ChangeIn.ChangeInWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"              
+        Height="500" Width="600"
+        Title="ChangeParametrOnShared"
+        ResizeMode="CanResize"
+        Name="ChangeIn">
+    <Window.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition MaxHeight="400"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <StackPanel>
+                <TextBlock Text="Path Family Document"/>
+                <TextBlock Text="{Binding ActiveFamilyDocName}" TextWrapping="Wrap"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <TextBlock Text="Select Parameter and click Change"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <DataGrid ItemsSource="{Binding FamilyParameters, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding SelectedFamilyParameter, UpdateSourceTrigger=PropertyChanged}"
+                      AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ParameterType" IsReadOnly="True" Binding="{Binding Path=Definition.Name}" Width="Auto"/>
+                    <DataGridTextColumn Header="ParameterType" IsReadOnly="True" Binding="{Binding Path=Definition.ParameterType}" Width="70"/>
+                    <DataGridTextColumn Header="Formula" IsReadOnly="True" Binding="{Binding Path=Formula}" Width="200"/>
+                    <DataGridTemplateColumn Header="Change" MaxWidth="150">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Change"
+                                        Command="{Binding Path=DataContext.Change, 
+                                    RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Window}}}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Button
+                Content="Close"
+                HorizontalAlignment="Right"
+                Width="150"
+                Command="{Binding Close}"
+                CommandParameter="{Binding ElementName=ChangeIn}">
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

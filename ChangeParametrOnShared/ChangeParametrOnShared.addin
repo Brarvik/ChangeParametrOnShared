@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Assembly>ChangeParametrOnShared.dll</Assembly>
+    <ClientId>e7943ece-12aa-4cb5-8300-b5522927b516</ClientId>
+    <FullClassName>ChangeParametrOnShared.App</FullClassName>
+    <Name>ChangeParametrOnShared</Name>
+    <VendorId>Egorov.A</VendorId>
+    <VendorDescription>Egorov.A, www.github.com/MyN1ckName/ChangeParametrOnShared</VendorDescription>
+  </AddIn>
+</RevitAddIns>

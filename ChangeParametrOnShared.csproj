@@ -31,17 +31,60 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="RevitAPI">
+      <HintPath>C:\Program Files\Autodesk\Revit 2019\RevitAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RevitAPIUI">
+      <HintPath>C:\Program Files\Autodesk\Revit 2019\RevitAPIUI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeParametrOnShared\App.cs" />
+    <Compile Include="ChangeParametrOnShared\Command.cs" />
+    <Compile Include="ChangeParametrOnShared\Model\Changer.cs" />
+    <Compile Include="ChangeParametrOnShared\Model\FamilyParametrs.cs" />
+    <Compile Include="ChangeParametrOnShared\Model\SharedParametrs.cs" />
+    <Compile Include="ChangeParametrOnShared\MVVM\ChangeIn\ChangeInWindow.xaml.cs">
+      <DependentUpon>ChangeInWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeParametrOnShared\MVVM\ChangeIn\ViewModelChangeIn.cs" />
+    <Compile Include="ChangeParametrOnShared\MVVM\ChangeTo\ChangeToWindow.xaml.cs">
+      <DependentUpon>ChangeToWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeParametrOnShared\MVVM\ChangeTo\ViewModelChangeTo.cs" />
+    <Compile Include="ChangeParametrOnShared\MVVM\RelayCommand.cs" />
+    <Compile Include="ChangeParametrOnShared\MVVM\ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ChangeParametrOnShared\ChangeParametrOnShared.addin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ChangeParametrOnShared\MVVM\ChangeIn\ChangeInWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChangeParametrOnShared\MVVM\ChangeTo\ChangeToWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ChangeParametrOnShared\icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

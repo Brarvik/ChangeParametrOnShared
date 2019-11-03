@@ -1,0 +1,91 @@
+﻿<Window x:Class="ChangeParametrOnShared.MVVM.ChangeTo.ChangeToWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="300" Width="500"
+        Title="SharedParameters"
+        ResizeMode="CanResize"
+        Name="ChangeTo">
+    <Window.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+        <Style TargetType="ListView">
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition MaxHeight="300"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <StackPanel>
+                <TextBlock Text="Shared Parameters File" Padding="5"/>
+                <TextBlock Text="{Binding OpenSharedParameterFileName}" TextWrapping="Wrap"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <ComboBox
+                  ItemsSource="{Binding OpenSharedParameterFileGroups}"
+                  SelectedItem="{Binding SelectedGroup, UpdateSourceTrigger=PropertyChanged}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <ListView
+                  ItemsSource="{Binding DefinitionSelectedGroup}"
+                  SelectedItem="{Binding SelectedSharedParametr, UpdateSourceTrigger=PropertyChanged}"
+                  MinHeight="10">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Width="250">Parametr</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=ParameterType}" Width="90">ParameterType</GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Right">
+                <Button
+                   Width="150"
+                    Margin="5"
+                    Content="OK"    
+                    Command="{Binding Go}"
+                    CommandParameter="{Binding ElementName=ChangeTo}">
+                </Button>
+                <Button
+                    Width="150"
+                    Margin="5"
+                    Content="Cancel"
+                    Command="{Binding Close}"
+                    CommandParameter="{Binding ElementName=ChangeTo}">
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
