@@ -71,7 +71,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".travis.yml" />
     <None Include="ChangeParametrOnShared\ChangeParametrOnShared.addin" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="ChangeParametrOnShared\MVVM\ChangeIn\ChangeInWindow.xaml">
@@ -85,6 +87,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ChangeParametrOnShared\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="image\notload.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
