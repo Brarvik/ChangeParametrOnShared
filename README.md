@@ -6,6 +6,6 @@
 
 Autodesk Revit Plug-In for replace a Family Parameter to a Shared Parameter
 ## Installation
-Download MSI package from [Isnstaller](https://github.com/MyN1ckName/ChangeParametrOnShared/tree/master/Isnstaller) folder.
+Download MSI package from [Isnstaller](https://github.com/MyN1ckName/ChangeParametrOnShared/tree/master/Installer) folder.
 ## License
 This sample is licensed under the terms of the [MIT](https://opensource.org/licenses/MIT) License.
