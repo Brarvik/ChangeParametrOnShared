@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="ChangeParametrOnShared\App.cs" />
     <Compile Include="ChangeParametrOnShared\Command.cs" />
+    <Compile Include="ChangeParametrOnShared\CommandAvailability.cs" />
     <Compile Include="ChangeParametrOnShared\Model\Changer.cs" />
     <Compile Include="ChangeParametrOnShared\Model\FamilyParametrs.cs" />
     <Compile Include="ChangeParametrOnShared\Model\SharedParametrs.cs" />

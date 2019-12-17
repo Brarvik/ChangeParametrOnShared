@@ -11,10 +11,10 @@ namespace ChangeParametrOnShared
 		public Result OnStartup(UIControlledApplication app)
 		{
 			RibbonPanel rvtRibbonPanel = app.CreateRibbonPanel("ChangeParameter");
-			PushButton button = rvtRibbonPanel.AddItem
-				(new PushButtonData("Button", "ChangeParameter"
-				, ExecutingAssemblyPath, "ChangeParametrOnShared.Command")) as PushButton;
-
+			PushButtonData dataButton = new PushButtonData("Button", "ChangeParameter"
+				, ExecutingAssemblyPath, "ChangeParametrOnShared.Command");
+			dataButton.AvailabilityClassName = "ChangeParametrOnShared.CommandAvailability";
+			PushButton button = rvtRibbonPanel.AddItem(dataButton) as PushButton;
 			button.LargeImage = new System.Windows.Media.Imaging.BitmapImage
 				(new Uri("pack://application:,,,/ChangeParametrOnShared;component/ChangeParametrOnShared/icon.ico"
 				, UriKind.Absolute));

@@ -16,19 +16,12 @@ namespace ChangeParametrOnShared
 		{
 			try
 			{
-				if (commandData.Application.ActiveUIDocument.Document.IsFamilyDocument)
+				MVVM.ChangeIn.ChangeInWindow window = new MVVM.ChangeIn.ChangeInWindow()
 				{
-					MVVM.ChangeIn.ChangeInWindow window = new MVVM.ChangeIn.ChangeInWindow()
-					{
-						DataContext = new MVVM.ChangeIn.ViewModelChangeIn(commandData)
-					};
-					window.ShowDialog();
-				}
-				else
-				{
-					MessageBox.Show("Please, Open Family Document from Edit Family mode"
-				 , "ChangeParametrOnShared");
-				}
+					DataContext = new MVVM.ChangeIn.ViewModelChangeIn(commandData)
+				};
+				window.ShowDialog();
+
 				return Result.Succeeded;
 			}
 			catch (Autodesk.Revit.Exceptions.OperationCanceledException)
